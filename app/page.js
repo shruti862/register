@@ -1,12 +1,15 @@
 "use client";
 import Link from "next/link";
 import { UserAuth } from "./context/AuthContext";
-
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 export default function Home() {
   const { user, googleSignIn } = UserAuth();
+  const router = useRouter();
   const handleSignIn = async () => {
     try {
       await googleSignIn();
+      router.push("/signup");
     } catch (error) {
       console.log(error);
     }

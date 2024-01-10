@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 const page = () => {
   return (
     <div>
@@ -90,13 +90,13 @@ const page = () => {
         </div>
         <div className="flex">
           <div mt-2 className="text-left">
-            Already Registered?{" "}
+            Already Registered?
           </div>
           <button
             type="submit"
             className="w-full bg-blue-500 text-white p-1 my-2 mx-3 rounded hover:bg-blue-700"
           >
-            LOGIN
+            <Link href="/signin">Login</Link>
           </button>
         </div>
       </main>
