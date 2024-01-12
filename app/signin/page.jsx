@@ -1,6 +1,18 @@
+"use client";
 import React from "react";
-
+import { UserAuth } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
 const SignIn = () => {
+  const { user, googleSignIn } = UserAuth();
+  const router = useRouter();
+  const handleSignIn = async () => {
+    try {
+      await googleSignIn();
+      router.push("/signup");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <main className="flex text-center px-20 mt-10 flex-col  items-center justify-center ">
@@ -15,7 +27,10 @@ const SignIn = () => {
             </h2>
 
             <span className="text-black text-xs">SIGN IN WITH</span>
-            <button className="text-black text-sm m-2 flex mb-5 border border-2 border-gray-300 rounded-md shadow-md hover:shadow-lg hover:text-blue-600  py-1 px-2">
+            <button
+              className="text-black text-sm m-2 flex mb-5 border border-2 border-gray-300 rounded-md shadow-md hover:shadow-lg hover:text-blue-600  py-1 px-2"
+              onClick={handleSignIn}
+            >
               <img
                 alt="..."
                 class="w-5 mr-1"

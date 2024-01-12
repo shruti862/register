@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { UserAuth } from "./context/AuthContext";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+
 export default function Home() {
   const { user, googleSignIn } = UserAuth();
   const router = useRouter();
